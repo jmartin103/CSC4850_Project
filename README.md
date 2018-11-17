@@ -1,4 +1,4 @@
-Julia Project 
+#Semester Project 
 
 Goal) We want to perform a statistical analysis on our data using the traditional Artificial Neural Netowork. To calirfy, our Neural Network will not be Convolution. Therefore, the opportunity to extract features will be the Augmentors job. 
 Mocha's job is to use our reduced images to form a netowork. 
@@ -14,6 +14,8 @@ Readmore about it here: https://augmentor.readthedocs.io/en/master/userguide/mai
 Once we have collected data we will use them as inputs and begin building the Neural netowork in Julia. 
 
 Using our spreadsheet data we will is if we can train out network from certain features and see if there is a correlation between certain values in our network. 
+
+**Note:** The res/images is missing because it contains sensitive data. ***PLEASE MAKE SURE YOU DON'T PUSH ANY REAL DATA!!!!***
 
 ## Journal 
 ---
