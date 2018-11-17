@@ -44,5 +44,5 @@ Depending on whether multi_threading is True or False
 **Solved:** The issue is with my laptop. The damn thing ran out of memory. Now I really regret getting the touch screen with tradeoff to low memory. Ughhh. 
 
 --- 
-***11/17/2018 - *** I have accomplished processing the files and creating samples. Now I will be trying to learn how to use Mocha with julia. This is the main Neural Network Library. 
+***11/17/2018 -*** I have accomplished processing the files and creating samples. Now I will be trying to learn how to use Mocha with julia. This is the main Neural Network Library. 
 
