@@ -46,3 +46,28 @@ Depending on whether multi_threading is True or False
 --- 
 ***11/17/2018 -*** I have accomplished processing the files and creating samples. Now I will be trying to learn how to use Mocha with julia. This is the main Neural Network Library. 
 
+***11/19/2018 -*** Went hiking in Columbus Georgia yesterday, it was peaceful. Anyways, now I am back on this project. I must learn 2 things.
+	#1) How to convert my image data into HD5 format
+	#2) How to use this HD5 format with the network. 
+
+WTF is a tensor? Reading on the HDF5DataLayer componenet in Mocha suggest that "Each dataset in the HDF5 file should be a N-dimensional tensor." 
+
+I just learend that a tesor is represented similar to a vector/matrix, the main differnces is that a tensor is in context of a bigger structure and is connected with other tensors. If a variant tensor changes, its covariant tensor changes as well. 
+
+***11/19/2018 -*** I just started building the network. I am following the MNIST tutorial: 	https://mochajl.readthedocs.io/en/latest/tutorial/mnist.html. 
+
+So far I have build a couple "Layers"
+1. A HDF5DataLayer 
+	- Supposedly this can be a text file with paths of corresponding HDF5 files. 
+	- By convention, this layer will look for [:data] and [:label] in oyur HDF5 files.
+	- These will be defined in your "bottoms" section, note how we left those properies out. 
+2. A ConvolutationLayer 
+	- This is the first layer that processes the images. Convolution is the process -
+	- scanning an image to derive features. It creates an identical matrix whose values
+	- have been determined via algorithm. 
+3. A PoolingLayer
+	- I think this layer is responsible to reduce the size of your data. I am not sure. 
+4. Inner ProductLayer
+	- This is a simple layer an innder product (a, b ,c)(x, y, z) = a scalar(ac + by + cz)
+
+Forward: Before, trying to figure out how to solve a neural network, I need to finalize how I swill save data. 
