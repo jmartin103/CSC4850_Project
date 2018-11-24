@@ -23,5 +23,5 @@ p.resize(probability=1.0, width=10, height=10)
 	# This is the Area we can experiment on Feature Extraction or  
 
 # Set processing and design configuration 
-p.sample(1, multi_threaded=True) 
+p.sample(20, multi_threaded=False) 
 p.process() 

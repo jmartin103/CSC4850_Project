@@ -73,3 +73,26 @@ So far I have build a couple "Layers"
 	- This is a simple layer an innder product (a, b ,c)(x, y, z) = a scalar(ac + by + cz)
 
 Forward: Before, trying to figure out how to solve a neural network, I need to finalize how I swill save data. 
+
+***11/22/2018 -*** Happy Thanks Giving! Damn, just got home for thanksgiving. I'm gonna be away from Atlanta from today til saturday. But will try to get some work done. 
+
+Here are two things I know to be true:
+	1- I have a folder filled with .JPEGs from Augmentor
+	2- I can create a DATALayer in Julia Mocha. 
+
+I need to start from the top and work my way down. In other words, I need to learn more about the HDF5DataLayer. 
+
+- It seems most of the tutorials I am reading begins with a all the images converted into a binary format, they they use Mocha to convert them into a HDF5 format. 
+
+Converting Binary to HD5 files here: 
+https://github.com/pluskid/Mocha.jl/blob/master/examples/cifar10/convert.jl#L7
+
+salient methods 
+	h5open 
+	dataspace
+	d_create
+
+**11/22/2018 -*** Thanksgiving was great. So thankful for not being homeless or mentally ill. But I still need to understand how to convert my images to HDF5. 
+
+I will following this tutorial: http://machinelearninguru.com/deep_learning/data_preparation/hdf5/hdf5.html
+
