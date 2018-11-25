@@ -96,3 +96,23 @@ salient methods
 
 I will following this tutorial: http://machinelearninguru.com/deep_learning/data_preparation/hdf5/hdf5.html
 
+***11/25/2018 -*** Okay so I have a basic flow from Image to HDF5 file. Now I must try to understand how the HDF5 file is formatted for the network. I shall try to learn more about the HDF5 data layer. In some examples they use a text file with a list of HDF5 files, I wonder if it is possible to link it to a single HDF5 file where all the samples are stored. 
+
+##### Issue 4 - Encountered an bigger issue: INSTALLING MOCHA, I get this error: 
+
+```
+ Unsatisfiable requirements detected for package Mocha [f17d6557]:
+```
+
+Solved: tried to downgrade to Julia 0.6.4
+
+I have the basic Network configuration from the Hello World example in Mocha github. However, it is giving me an error saying:
+
+##### Issue 5 - Data Blob not found 
+
+```
+ERROR: LoadError: Illegal Network Topology: Required input blob missing: data_layer
+```
+
+I need to read the DataLayer documentation to see how the HDF5 file should be formatted! 
+

@@ -41,7 +41,9 @@ data_shape = (len(addrs), 224, 224, 3)
 
 hdf5_file = h5py.File("C:/Users/trimo/Desktop/Machine Learning/Semester Project/res/images_test/hdf5/texthdf.hdf5", mode="w")
 
-hdf5_file.create_dataset("myDataSet", data_shape, np.int8)
+hdf5_file["label"]= "my label" 
+
+hdf5_file.create_dataset("data", data_shape, np.int8)
 
 # Loop over addresses
 for i in range(len(addrs)) : 
@@ -52,4 +54,4 @@ for i in range(len(addrs)) :
 	# img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
 	#save the image
-	hdf5_file["myDataSet"][i] = img
+	hdf5_file["data"][i] = img

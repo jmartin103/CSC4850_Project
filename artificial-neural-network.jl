@@ -12,23 +12,33 @@ using Mocha
 
 ## Building the Network 
 
-data_layer = HDF5DataLayer(name="train-data", source="", 
+data_layer = HDF5DataLayer(name="train-data", source="\res\images_test\hdf5\data.txt", 
 	batch_size=64, shuffle=true) 
 
-convolution_layer = ConvolutionLayer(name="conv-1", n_filter=20, 
-	kernal=(5,5), bottoms=[:data], tops=[:conv1])
+convolutional_layer = ConvolutionLayer(name="conv-1",n_filter=20,kernel=(5,5), 
+	bottoms=[:data_layer],tops=[:convolutional_layer])
 
-pooling_layer = PoolingLayer(name="pool-1", kernal=(2,2), stride=(2,2),
-	bottoms=[:conv-1], tops=[:pool-1]) 
+pool_layer = PoolingLayer(name="pool1",kernel=(2,2),stride=(2,2),
+	bottoms=[:convolutional_layer],tops=[:pool_layer])
 
-inner_product_layer_1 = InnerProductLayer(name="ip1", output=500, 
-	neuron=Neurons.ReLU(), bottoms=[:pool2], tops=[:ip1])
+convolutional_layer_2 = ConvolutionLayer(name="conv2",n_filter=50,kernel=(5,5),
+	bottoms=[:pool_layer],tops=[:convolutional_layer_2])
 
-inner_product_layer_2 = InnerProductLayer(name="ip2", output=100, 
-	bottoms=[:pool1], tops=[:ip2])
+pool_layer_2 = PoolingLayer(name="pool2",kernel=(2,2),stride=(2,2),
+	bottoms=[:convolutional_layer_2],tops=[:pool_layer_2])
 
-loss_layer = SoftmaxLossLayer(name="loss", bottoms=[:ip2, :label])
-	# It will compute an averaged loss over each mini-batch, 
-	# which allows us to initiate back propagation
+inner_product_layer	= InnerProductLayer(name="ip1",output_dim=500,neuron=Neurons.ReLU(),
+	bottoms=[:pool_layer_2], tops=[:inner_product_layer])
 
-## Solve the Network  
+inner_product_layer_2 = InnerProductLayer(name="ip2",output_dim=10,
+	bottoms=[:inner_product_layer], tops=[:inner_product_layer_2])
+
+loss_layer = SoftmaxLossLayer(name="loss", bottoms=[:inner_product_layer_2, :label])
+
+backend = DefaultBackend()
+init(backend)
+
+common_layers = [convolutional_layer, pool_layer, convolutional_layer_2, 
+	pool_layer_2, inner_product_layer, inner_product_layer_2]
+
+net = Net("My Network", backend, [data_layer, common_layers..., loss])
